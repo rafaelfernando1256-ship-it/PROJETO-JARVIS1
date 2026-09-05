@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.env
+config/devices.json
+*.log
+.DS_Store

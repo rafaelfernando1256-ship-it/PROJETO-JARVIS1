@@ -1,0 +1,155 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0f1220;
+  --card: #1a1f36;
+  --accent: #4f8cff;
+  --text: #eef1fb;
+  --muted: #9aa3c0;
+  --ok: #3ecf8e;
+  --off: #565f81;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+header {
+  padding: 24px 32px 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+header h1 { margin: 0; font-size: 1.6rem; }
+
+.status { font-size: 0.85rem; margin: 0; }
+.status.online { color: var(--ok); }
+.status.offline { color: #ff6b6b; }
+
+main {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 24px;
+  padding: 16px 32px 32px;
+}
+
+@media (max-width: 800px) {
+  main { grid-template-columns: 1fr; }
+}
+
+.voice-panel, .devices-panel {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.mic-button {
+  width: 100%;
+  padding: 20px;
+  font-size: 2rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.mic-button.listening { background: #ff5b6b; animation: pulse 1s infinite; }
+.mic-button:active { transform: scale(0.97); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.text-form { display: flex; gap: 8px; margin-top: 12px; }
+.text-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #333a5c;
+  background: #10142a;
+  color: var(--text);
+}
+.text-form button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+.log {
+  margin-top: 16px;
+  max-height: 320px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.log-entry { padding: 8px 10px; border-radius: 8px; background: #10142a; }
+.log-entry.error { border-left: 3px solid #ff6b6b; }
+.log-entry.ok { border-left: 3px solid var(--ok); }
+.log-entry .meta { color: var(--muted); font-size: 0.75rem; }
+
+.devices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.devices-header button {
+  background: none;
+  border: 1px solid #333a5c;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.devices-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.device-card {
+  background: #10142a;
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid #262c4a;
+}
+.device-card h3 { margin: 0 0 4px; font-size: 1rem; }
+.device-card .room { color: var(--muted); font-size: 0.8rem; margin-bottom: 8px; }
+.device-card .power-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--off);
+  margin-right: 6px;
+}
+.device-card .power-dot.on { background: var(--ok); }
+.device-card .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.device-card button {
+  background: #1f2544;
+  color: var(--text);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.device-card button:hover { background: var(--accent); }

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jarvis - Casa Inteligente</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🏠 Jarvis</h1>
+    <p id="connection-status" class="status offline">conectando...</p>
+  </header>
+
+  <main>
+    <section class="voice-panel">
+      <button id="mic-button" class="mic-button" title="Falar comando">🎤</button>
+      <form id="text-form" class="text-form">
+        <input id="text-input" type="text" placeholder="Ex: liga a tv da sala" autocomplete="off" />
+        <button type="submit">Enviar</button>
+      </form>
+      <div id="log" class="log" aria-live="polite"></div>
+    </section>
+
+    <section class="devices-panel">
+      <div class="devices-header">
+        <h2>Dispositivos</h2>
+        <button id="discover-button" title="Buscar dispositivos UPnP/SSDP na rede">🔍 Descobrir na rede</button>
+      </div>
+      <div id="devices" class="devices-grid"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+[
+  {
+    "id": "tv-sala",
+    "name": "TV da Sala",
+    "aliases": ["televisao da sala", "tv"],
+    "room": "sala",
+    "driver": "lg-webos",
+    "capabilities": ["power", "volume", "mute", "input", "media"],
+    "address": "192.168.0.50",
+    "options": {
+      "clientKey": ""
+    }
+  },
+  {
+    "id": "tv-quarto",
+    "name": "TV do Quarto",
+    "aliases": ["televisao do quarto"],
+    "room": "quarto",
+    "driver": "samsung-tizen",
+    "capabilities": ["power", "volume", "mute", "input"],
+    "address": "192.168.0.51",
+    "options": {
+      "token": ""
+    }
+  },
+  {
+    "id": "caixa-sala",
+    "name": "Caixa de Som da Sala",
+    "aliases": ["som da sala", "sonos"],
+    "room": "sala",
+    "driver": "sonos",
+    "capabilities": ["volume", "mute", "media"],
+    "address": "192.168.0.60"
+  },
+  {
+    "id": "tv-roku",
+    "name": "TV do Escritorio",
+    "aliases": ["roku"],
+    "room": "escritorio",
+    "driver": "roku",
+    "capabilities": ["power", "volume", "input", "media"],
+    "address": "192.168.0.55"
+  },
+  {
+    "id": "tomada-abajur",
+    "name": "Abajur",
+    "aliases": ["luz do quarto"],
+    "room": "quarto",
+    "driver": "tplink-kasa",
+    "capabilities": ["power"],
+    "address": "192.168.0.70"
+  },
+  {
+    "id": "ventilador-escritorio",
+    "name": "Ventilador do Escritorio",
+    "aliases": ["ventilador"],
+    "room": "escritorio",
+    "driver": "http",
+    "capabilities": ["power"],
+    "address": "192.168.0.80",
+    "options": {
+      "baseUrl": "http://192.168.0.80",
+      "endpoints": {
+        "power_on": { "method": "POST", "path": "/power/on" },
+        "power_off": { "method": "POST", "path": "/power/off" },
+        "status": { "method": "GET", "path": "/status" }
+      }
+    }
+  },
+  {
+    "id": "luz-cozinha",
+    "name": "Luz da Cozinha",
+    "aliases": ["luz da cozinha"],
+    "room": "cozinha",
+    "driver": "mqtt",
+    "capabilities": ["power", "brightness"],
+    "options": {
+      "brokerUrl": "mqtt://192.168.0.10:1883",
+      "commandTopic": "casa/cozinha/luz/set",
+      "stateTopic": "casa/cozinha/luz/state"
+    }
+  },
+  {
+    "id": "fone-bluetooth",
+    "name": "Fone Bluetooth",
+    "aliases": ["fone", "headset"],
+    "room": "sala",
+    "driver": "bluetooth",
+    "capabilities": ["power", "volume"],
+    "address": "AA:BB:CC:DD:EE:FF"
+  },
+  {
+    "id": "luz-demo",
+    "name": "Luz de Demonstracao",
+    "aliases": ["luz demo", "demo"],
+    "room": "sala",
+    "driver": "mock",
+    "capabilities": ["power", "brightness"]
+  }
+]
